@@ -10,5 +10,5 @@ for row in data:
     income = row[3]
     xueyuan = row[4]
     # 打印结果
-    print("学号=%s,姓名=%s,性别=%s,籍贯=%s,学院n=%s" %
+    print("学号=%s,姓名=%s,性别=%s,籍贯=%s,学院=%s" %
           (userid, name, sex, income, xueyuan))
