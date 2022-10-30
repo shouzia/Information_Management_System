@@ -33,3 +33,15 @@ class Mysql_Sql(object):
 
         finally:
             self.db.close()
+    
+    def insert(self,sql):
+        self.cursor = self.db.cursor()
+        try:
+            # self.cursor.execute(sql)
+            tt = self.cursor.execute(sql)  # 返回 插入数据 条数 可以根据 返回值 判定处理结果
+            self.db.commit()
+            return tt
+        except:
+            return "插入失败"
+        finally:
+            self.db.close()

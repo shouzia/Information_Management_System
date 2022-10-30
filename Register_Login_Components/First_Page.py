@@ -17,11 +17,11 @@ def login_register():
     while (i == 0):
         if login_Flag == 0:
             flag = "登录"
-            print("登录")
+            print("----------登录----------")
             break
         elif login_Flag == 1:
-            print("注册")
             flag = "注册"
+            print("----------注册----------")
             break
         else:
             login_register()
