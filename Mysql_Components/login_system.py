@@ -1,11 +1,9 @@
-import Mysql_Sql
-
+from config import ConnetMysql
 
 # 登陆系统
 def login(user, pw):
 
-    mysqlconn = Mysql_Sql.Mysql_Sql(
-        "localhost", "root", "zhjq2001", "student_system")
+    mysqlconn = ConnetMysql()
     sql = "SELECT * FROM `user` WHERE username='" + \
         user + "' AND password='"+pw+"'"
     data = mysqlconn.select(sql)
