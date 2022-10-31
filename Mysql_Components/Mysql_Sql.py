@@ -34,7 +34,7 @@ class Mysql_Sql(object):
         finally:
             self.db.close()
     
-    def insert(self,sql):
+    def insert(self,sql):   #插入数据
         self.cursor = self.db.cursor()
         try:
             # self.cursor.execute(sql)
@@ -43,5 +43,28 @@ class Mysql_Sql(object):
             return tt
         except:
             return "插入失败"
+        finally:
+            self.db.close()
+    
+
+    def update(self,sql):   #更新数据
+        self.cursor = self.db.cursor()
+        try:
+            tt = self.cursor.execute(sql)  # 返回 更新数据 条数 可以根据 返回值 判定处理结果
+            self.db.commit()
+            return tt
+        except:
+            return "更新失败"
+        finally:
+            self.db.close()
+
+    def delele(self,sql):   #删除数据
+        self.cursor = self.db.cursor()
+        try:
+            tt = self.cursor.execute(sql)  # 返回 删除数据 条数 可以根据 返回值 判定处理结果
+            self.db.commit()
+            return tt
+        except:
+            return "删除失败"
         finally:
             self.db.close()
