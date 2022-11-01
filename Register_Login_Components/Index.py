@@ -8,7 +8,6 @@ from Mysql_Components.login_system import login
 from Mysql_Components.register_system import register_system
 from Login import Login as login_component
 from register import Register
-print(sys.path)
 
 
 
