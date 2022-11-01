@@ -1,13 +1,16 @@
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.getcwd(), ".."))) # 当前项目路径加入
-sys.path.append('../admin',)
-sys.path.append('../teacher',)
+sys.path.append('../admin')
+sys.path.append('../teacher')
+sys.path.append('../student')
 
 from admin.change_user import change_user
 from admin.register_advanced import register_advanced
 
 from teacher.Select_Change_studentdata import Select_Change_studentdata
+from student.select_my_data import select_my_data
+from student.select_my_data import select_my_score
 
 
 class Login():
@@ -30,7 +33,11 @@ class Login():
             option=int(input("请选择"))
             Login(self.user,self.password,self.usertype).login_teacher(option)
         elif self.usertype=="学生":
-            print("学生")
+            print("----------学生----------")
+            print("0-----查询信息")
+            print("1-----查询成绩")
+            option=int(input("请选择"))
+            Login(self.user,self.password,self.usertype).login_student(option,self.user)
 
 
     def login_admin(self,flag):
@@ -65,4 +72,13 @@ class Login():
                 print("修改失败")
         else:
             print("输入错误")
+
+    def login_student(self,flag,user):
+        if flag==0:
+            select_my_data(user)
+        elif flag==1:
+            select_my_score(user)
+        else:
+            print("输入错误")
+
 

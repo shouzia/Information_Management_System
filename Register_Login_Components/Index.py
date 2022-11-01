@@ -33,5 +33,3 @@ def login_register():
                 login_register()
         else:
             print("注册失败")
-
-login_register()
